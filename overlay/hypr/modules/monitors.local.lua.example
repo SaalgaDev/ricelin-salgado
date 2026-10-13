@@ -1,0 +1,30 @@
+-- Monitors adapted to this machine (laptop eDP-1 + external HDMI-A-1).
+-- The deployer's portable default (output = "") works, but it leaves both
+-- outputs on auto placement. Pinning them keeps the layout stable across
+-- replugs and lets the workspace rules below have a fixed home per screen.
+-- Check your layout anytime with: hyprctl monitors
+
+-- Notebook panel, 1920x1080
+hl.monitor({
+    output   = "eDP-1",
+    mode     = "preferred",
+    position = "0x0",
+    scale    = 1,
+})
+
+-- External monitor, sits to the right of the panel
+hl.monitor({
+    output   = "HDMI-A-1",
+    mode     = "preferred",
+    position = "1920x0",
+    scale    = 1,
+})
+
+-- Workspaces 1-5 live on the laptop, 6-10 on the external monitor
+for i = 1, 5 do
+    hl.workspace_rule({ workspace = tostring(i), monitor = "eDP-1" })
+end
+
+for i = 6, 10 do
+    hl.workspace_rule({ workspace = tostring(i), monitor = "HDMI-A-1" })
+end

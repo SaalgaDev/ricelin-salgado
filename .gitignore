@@ -1,0 +1,17 @@
+# Overlay files: these are copied verbatim into ~/.config, never edited in place.
+*.ricelin-bak-*
+
+# Generated locally, never part of the repo.
+__pycache__/
+*.pyc
+
+# Screenshots are committed on purpose (assets/screenshots/*.png), but keep the
+# editor/annotation leftovers out.
+assets/screenshots/*.qsb
+assets/screenshots/*-thumbs/
+assets/screenshots/*.tmp
+
+# OS cruft
+.DS_Store
+Thumbs.db
+*.swp
